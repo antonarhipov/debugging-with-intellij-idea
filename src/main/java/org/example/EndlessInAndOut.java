@@ -2,25 +2,7 @@ package org.example;
 
 import java.io.IOException;
 
-
-// Pause (suspend) -> Threads, Application state, Frames
-// Resume
-// Hitting the break point twice at System.in.read()
-// Setting breakpoints on every line (via multiple cursors), and disabling via alt+click
-// mute breakpoints action
-// Shift+Cmd+F8 / Bookmarks - view all the breakpoints
-// Step over, Step into -> Step out
-// Force step into, Shift+Option+F7 (for Math.max, or System.out.println)
-// Run to cursor
-// Frame Colors
-// Analyzing complex expression (Math.max) - Alt+click
-// Evaluate expressions
-// Variables -> Watches / Expressions
-// Set value
-// Force return
-
-
-public class EndressInAndOut {
+public class EndlessInAndOut {
     public static void main(String[] args) throws IOException {
         while (true) {
             int read = System.in.read();

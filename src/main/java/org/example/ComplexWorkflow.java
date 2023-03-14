@@ -1,9 +1,10 @@
-package org.example.debug;
+package org.example;
 
 public class ComplexWorkflow {
-    
-    public void process(String id){
+
+    public User process(String id){
         step1(id);
+        return new User(id);
     }
 
     private void step1(String id) {
