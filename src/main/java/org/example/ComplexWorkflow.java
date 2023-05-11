@@ -2,6 +2,11 @@ package org.example;
 
 public class ComplexWorkflow {
 
+    public static void main(String[] args) {
+        ComplexWorkflow workflow = new ComplexWorkflow();
+        workflow.process("asdf");
+    }
+
     public User process(String id){
         step1(id);
         return new User(id);
