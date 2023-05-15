@@ -12,6 +12,8 @@ public class Presentation {
 
 
 
+    String hello = "My name is Anton";
+
 
 
 
@@ -21,10 +23,12 @@ public class Presentation {
 
     /**
      * <h1>Why debug?</h1>
+     * <ul style="font-size:18px"/>
      * <li>Find and fix bugs!</li>
      * <li>Analyze code behaviour</li>
      * <li>Change code behaviour (at runtime)</li>
      * <li>Analyze memory issues</li>
+     * </ul>
      */
     int debug;
 
@@ -38,12 +42,16 @@ public class Presentation {
 
 
 
+
+
     /**
      * <h1>Change behavior at runtime</h1>
+     * <ul style="font-size:18px"/>
      * <li>HotSwap</li>
      * <li>Evaluate expression / fragment</li>
      * <li>Reset frame</li>
      * <li>Force return & throw</li>
+     * </ul>
      */
     ChangeAtRuntime hotswap;
 
@@ -70,10 +78,12 @@ public class Presentation {
 
     /**
      * <h1>Debugging stream chains with Lambdas</h1>
+     * <ul style="font-size:18px"/>
      * <li>Breakpoints for lambdas</li>
      * <li>Run to cursor</li>
      * <li>(Smart) Step into lambdas</li>
      * <li>Trace current stream chain</li>
+     * </ul>
      */
     public static class Lambdas {
         public static void main(String[] args) {
@@ -103,8 +113,10 @@ public class Presentation {
 
     /**
      * <h1>Method breakpoints</h1>
+     * <ul style="font-size:18px"/>
      * <li>Good for interface methods</li>
      * <li>"Catch any invocation!"</li>
+     * </ul>
      */
     public static class MethodBreakpoints {
         public static void main(String[] args) {
@@ -173,11 +185,12 @@ public class Presentation {
 
 
     /**
-     *
      * <h1>Breakpoints</h1>
+     * <ul style="font-size:18px"/>
      * <li>Non-suspending breakpoints</li>
      * <li>Dependent breakpoints</li>
      * <li>Filters & intentions</li>
+     * </ul>
      */
     public static class Breakpoints {
 
