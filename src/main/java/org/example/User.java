@@ -1,6 +1,6 @@
 package org.example;
 
-class User {
+public class User {
     String name;
     int age;
 
@@ -15,12 +15,5 @@ class User {
     @Override
     public String toString() {
         return name + ": " + age;
-    }
-}
-
-class Admin extends User {
-
-    public Admin(String name) {
-        super(name);
     }
 }

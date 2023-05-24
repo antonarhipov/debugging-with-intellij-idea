@@ -8,7 +8,6 @@ public class Filters {
         List<User> users = List.of(
                 new User("Anton"),
                 new User("Anton"),
-                new Admin("Jane"),
                 new User("Joe")
         );
         for (int i = 0; i < 10; i++) {
