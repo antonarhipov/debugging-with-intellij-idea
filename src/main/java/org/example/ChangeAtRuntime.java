@@ -25,8 +25,8 @@ class Clazz {
     public String getValue() {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < 5; i++) {
-//            String string = read();
-//            System.out.println(string);
+            String string = read();
+            System.out.println(string);
             builder.append(i);
             builder.append(" ");
         }

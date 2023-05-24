@@ -12,7 +12,23 @@ import static java.lang.System.out;
 public class Debugger {
 
 
+
+
+
+
+
     String hello = "My name is Anton";
+
+
+
+
+
+
+
+
+
+
+
 
 
     /**
@@ -229,7 +245,7 @@ public class Debugger {
             }
 
             private void step4(String id) {
-                action(id + "....");
+                action(id);
             }
 
             void action(String id) {
@@ -269,6 +285,9 @@ public class Debugger {
 
 
 
+    /**
+     * @see org.example.model.Example
+     */
     static class Renderers {
 
         public static void main(String[] args) {
