@@ -280,11 +280,13 @@ public class Debugger {
             out.println("integers = " + integers);
         }
 
+        //region render
         @Renderer(
                 text = "name",
                 childrenArray = "courses.toArray()",
                 hasChildren = "!courses.isEmpty()"
         )
+        //endregion
         static class Student {
             String name;
             List<String> courses;
