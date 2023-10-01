@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    kotlin("jvm") version "1.8.21"
+    kotlin("jvm") version "1.9.10"
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
 }
 

@@ -26,7 +26,8 @@ class Clazz {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < 5; i++) {
             String string = read();
-            System.out.println(string);
+            builder.append(string);
+            builder.append("-");
             builder.append(i);
             builder.append(" ");
         }

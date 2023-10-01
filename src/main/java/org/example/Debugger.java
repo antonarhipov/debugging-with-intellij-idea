@@ -182,8 +182,7 @@ public class Debugger {
      * <h1>Breakpoints</h1>
      * <ul style="font-size:18px"/>
      * <li>Non-suspending breakpoints</li>
-     * <li>Dependent breakpoints</li>
-     * <li>Filters & intentions</li>
+     * <li>Evaluate and log</li>
      * </ul>
      */
     public static class Breakpoints {
@@ -217,7 +216,13 @@ public class Debugger {
 
 
 
-
+        /**
+         * <h1>Breakpoints</h1>
+         * <ul style="font-size:18px"/>
+         * <li>Dependent breakpoints</li>
+         * <li>Filters & intentions</li>
+         * </ul>
+         */
         static public class ComplexWorkflow {
 
             public static void main(String[] args) {
