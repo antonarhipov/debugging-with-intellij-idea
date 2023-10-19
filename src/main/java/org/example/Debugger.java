@@ -15,9 +15,12 @@ public class Debugger {
 
 
 
-
-
-    String hello = "My name is Anton";
+    // region Hello
+    String event = "BaselOne";
+    String presentation = "Debugging with IntelliJ IDEA";
+    String x = "@antonarhipov"; // follow me! :)
+    String company = "JetBrains";
+    //endregion
 
 
 
@@ -85,7 +88,7 @@ public class Debugger {
      */
     public static class Lambdas {
         public static void main(String[] args) {
-            List<String> reader = List.of("aaaa", "bbbbb", "cccc", "dddd");
+            List<String> reader = List.of("aaaa", "bbbbb", "cccc", "dddd", "ee");
             List<User> lines = reader.stream().filter(l -> l.length() > 3).filter(l -> !l.startsWith("a")).map(l -> new User(l)).toList();
             out.println(lines);
         }
@@ -221,6 +224,7 @@ public class Debugger {
          * <ul style="font-size:18px"/>
          * <li>Dependent breakpoints</li>
          * <li>Filters & intentions</li>
+         * <li>Daya flow analysis + debugging</li>
          * </ul>
          */
         static public class ComplexWorkflow {
@@ -297,19 +301,21 @@ public class Debugger {
 
         public static void main(String[] args) {
 
-            Student student = new Student("Anton", List.of("Math","History"));
-            out.println(student);
+            List<Student> students = List.of(
+                    new Student("Anton", List.of("Math", "History")),
+                    new Student("Jodie", List.of("English", "History")),
+                    new Student("Max", List.of("Biology", "Sports")),
+                    new Student("Anton", List.of("Chemistry", "Music")));
+
+            for (Student student : students) {
+                out.println(student);
+            }
 
             List<Integer> integers = Stream.generate(new Random()::nextInt).limit(200).toList();
             out.println("integers = " + integers);
         }
 
         //region render
-        @Renderer(
-                text = "name",
-                childrenArray = "courses.toArray()",
-                hasChildren = "!courses.isEmpty()"
-        )
         //endregion
         static class Student {
             String name;
@@ -323,4 +329,38 @@ public class Debugger {
     }
 
 
+
+
+
+
+
+
+
+
+    /**
+     * <h1>Filters & Watches</h1>
+     * <ul style="font-size:18px"/>
+     * <li>Caller filters</li>
+     * <li>Instance filters</li>
+     * <li>Inline watches</li>
+     * <li>Class-level watches</li>
+     * <li>Expression (inline) watches</li>
+     * </ul>
+     */
+    static class Filters {
+
+        public static void main(String[] args) {
+            List<User> users = List.of(
+                    new User("Anton"),
+                    new User("Anton"),
+                    new User("Joe")
+            );
+            for (int i = 0; i < 10; i++) {
+                for (User user : users) {
+                    user.inc();
+                    System.out.println(user);
+                }
+            }
+        }
+    }
 }

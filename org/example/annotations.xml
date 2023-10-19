@@ -1,4 +1,11 @@
 <root>
+    <item name='org.example.Debugger.Renderers.Student'>
+        <annotation name='org.jetbrains.annotations.Debug.Renderer'>
+            <val name="text" val="&quot;name&quot;"/>
+            <val name="childrenArray" val="&quot;courses.toArray()&quot;"/>
+            <val name="hasChildren" val="&quot;!courses.isEmpty()&quot;"/>
+        </annotation>
+    </item>
     <item name='org.example.User void inc()'>
         <annotation name='java.lang.Deprecated'/>
     </item>
