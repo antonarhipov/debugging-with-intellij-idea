@@ -16,7 +16,6 @@ public class Debugger {
 
 
     // region Hello
-    String event = "BaselOne";
     String presentation = "Debugging with IntelliJ IDEA";
     String x = "@antonarhipov"; // follow me! :)
     String company = "JetBrains";
