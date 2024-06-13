@@ -1,32 +1,33 @@
-package org.example;
+package org.example.async;
 
 import org.jetbrains.annotations.Async;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Task {
-    @Async.Execute
+
+class MyTask {
+    @AsyncExecuteAnnotation
     public void run(){
         System.out.println("Running: " + this);
     }
 }
 
-public class CustomAsync {
+public class CustomAsyncWithCustomAnnotations {
 
-    List<Task> tasks = new ArrayList<>();
+    List<MyTask> tasks = new ArrayList<>();
 
-    public void submitTask(@Async.Schedule Task task){
+    public void submitTask(@AsyncScheduleAnnotation MyTask task){
         System.out.println("Submitted: " + task);
         tasks.add(task);
     }
 
     public static void main(String[] args) {
 
-        CustomAsync runner = new CustomAsync();
+        CustomAsyncWithCustomAnnotations runner = new CustomAsyncWithCustomAnnotations();
 
         for (int i = 0; i < 5; i++) {
-            runner.submitTask(new Task());
+            runner.submitTask(new MyTask());
         }
 
         runner.tasks.forEach(task -> task.run());

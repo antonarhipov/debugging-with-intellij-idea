@@ -88,7 +88,9 @@ public class Debugger {
     public static class Lambdas {
         public static void main(String[] args) {
             List<String> reader = List.of("aaaa", "bbbbb", "cccc", "dddd", "ee");
-            List<User> lines = reader.stream().filter(l -> l.length() > 3).filter(l -> !l.startsWith("a")).map(l -> new User(l)).toList();
+            List<User> lines = reader.stream()
+                    .filter(l -> l.length() > 3)
+                    .filter(l -> !l.startsWith("a")).map(l -> new User(l)).toList();
             out.println(lines);
         }
     }
@@ -315,6 +317,11 @@ public class Debugger {
         }
 
         //region render
+//        @Renderer(
+//                text = "name",
+//                childrenArray = "courses.toArray()",
+//                hasChildren = "!courses.isEmpty()"
+//        )
         //endregion
         static class Student {
             String name;

@@ -35,7 +35,8 @@ class Clazz {
     }
 
     private String read() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return "-";
+//        Scanner scanner = new Scanner(System.in);
+//        return scanner.nextLine();
     }
 }

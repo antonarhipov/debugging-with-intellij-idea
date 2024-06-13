@@ -12,8 +12,9 @@ public class Basics {
         Flux<String> flux = from
                 .flatMap(w -> Flux.fromArray(w.split("")))
                 .distinct()
-                .zipWith(Flux.range(1, 100), (word, num) -> num + ": " + word);
-        flux.subscribe(System.out::println);
+                .zipWith(Flux.range(1, 100), (ch, num) -> num + ": " + ch);
+        flux.subscribe(msg -> System.out.println("Result: " + msg));
+
     }
 
 }

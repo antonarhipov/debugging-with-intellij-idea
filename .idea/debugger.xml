@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DebuggerSettings">
+    <async-schedule-annotations>
+      <annotation name="org.example.async.AsyncScheduleAnnotation" />
+    </async-schedule-annotations>
+    <async-execute-annotations>
+      <annotation name="org.example.async.AsyncExecuteAnnotation" />
+    </async-execute-annotations>
+  </component>
+</project>
