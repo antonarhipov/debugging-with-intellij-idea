@@ -6,6 +6,7 @@ public class User {
 
     public User(String name) {
         this.name = name;
+//        throw new RuntimeException("HAHA!");
     }
 
     void inc(){

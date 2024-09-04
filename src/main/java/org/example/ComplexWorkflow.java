@@ -4,7 +4,7 @@ public class ComplexWorkflow {
 
     public static void main(String[] args) {
         ComplexWorkflow workflow = new ComplexWorkflow();
-        workflow.process("asdf");
+        workflow.process("1234");
     }
 
     public User process(String id){
