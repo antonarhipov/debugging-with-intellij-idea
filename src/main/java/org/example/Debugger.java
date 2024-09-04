@@ -88,9 +88,7 @@ public class Debugger {
     public static class Lambdas {
         public static void main(String[] args) {
             List<String> reader = List.of("aaaa", "bbbbb", "cccc", "dddd", "ee");
-            List<User> lines = reader.stream()
-                    .filter(l -> l.length() > 3)
-                    .filter(l -> !l.startsWith("a")).map(l -> new User(l)).toList();
+            List<User> lines = reader.stream().filter(l -> l.length() > 3).filter(l -> !l.startsWith("a")).map(l -> new User(l)).toList();
             out.println(lines);
         }
     }
@@ -160,7 +158,7 @@ public class Debugger {
                             return null;
                         }
                     };
-                    my.getClass().getMethod("f" + "oo").invoke(my);
+                    my.getClass().getMethod(new String(new byte[]{0x66, 0x6f, 0x6f})).invoke(my);
                     //endregion
                 } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                     throw new RuntimeException(e);
