@@ -3,6 +3,7 @@ package org.example;
 import org.jetbrains.annotations.Debug.Renderer;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
@@ -17,7 +18,8 @@ public class Debugger {
 
     // region Hello
     String presentation = "Debugging with IntelliJ IDEA";
-    String x = "@antonarhipov"; // follow me! :)
+    String x = "@antonarhipov";
+    String bsky = "antonarhipov.bsky.social";
     String company = "JetBrains";
     //endregion
 
