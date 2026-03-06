@@ -34,6 +34,10 @@ public class ComplexWorkflow {
     }
 
     private void output(String id) {
-        System.err.println(id);
+        if(id == null) {
+            System.err.println(id);
+        } else {
+            System.out.println("id: " + id);
+        }
     }
 }

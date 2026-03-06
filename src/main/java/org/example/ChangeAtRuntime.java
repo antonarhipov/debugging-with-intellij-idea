@@ -9,6 +9,7 @@ public class ChangeAtRuntime {
 
         //noinspection InfiniteLoopStatement
         while (true) {
+            //remove println, and keep c.getValue to demonstrate the 'show method return value' setting
             System.out.println(c.getValue());
             sleep();
         }
@@ -24,6 +25,7 @@ public class ChangeAtRuntime {
 class Clazz {
     public String getValue() {
         StringBuilder builder = new StringBuilder();
+        //reset loop variable to affect the result for the builder
         for (int i = 0; i < 5; i++) {
             String string = read();
             builder.append(string);
@@ -31,9 +33,11 @@ class Clazz {
             builder.append(i);
             builder.append(" ");
         }
+        //force return instead of adjusting the value
         return builder.toString();
     }
 
+    // show hotswap
     private String read() {
 //        return "-";
         Scanner scanner = new Scanner(System.in);

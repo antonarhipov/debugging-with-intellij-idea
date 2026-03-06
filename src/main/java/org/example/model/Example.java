@@ -1,25 +1,42 @@
 package org.example.model;
 
+import java.util.List;
+
 public class Example {
-  public static void main(String[] args) {
-    final ClientBuilder builder = new ClientBuilder();
+    public static void main(String[] args) {
+        List<Client> clients = List.of(
+                buildClient("Anton", "Arhipov", "@antonarhipov", "JetBrains", "Tallinn")
+                , buildClient("John", "Doe", "@john", "JetBrains", "Tallinn")
+                , buildClient("Jim", "Jake", "@jim", "JetBrains", "Tallinn")
+                , buildClient("Vello", "Tamm", "@vello", "JetBrains", "Tallinn")
+                , buildClient("Mary", "Hummingbird", "@mary", "JetBrains", "Tallinn")
+                , buildClient("Jane", "Smith", "@jane", "JetBrains", "Tallinn")
+                , buildClient("Monica", "Lill", "@monica", "JetBrains", "Tallinn")
+                , buildClient("Mike", "Hern", "@mike", "JetBrains", "Tallinn")
+        );
+        System.out.println(clients);
+    }
 
-    builder.setFirstName("Anton");
-    builder.setLastName("Arhipov");
+    private static Client buildClient(String firstName, String lastName, String handle, String company, String city) {
+        final ClientBuilder builder = new ClientBuilder();
 
-    final TwitterBuilder twitterBuilder = new TwitterBuilder();
-    twitterBuilder.setHandle("@antonarhipov");
-    builder.setTwitter(twitterBuilder.build());
+        builder.setFirstName(firstName);
+        builder.setLastName(lastName);
 
-    final CompanyBuilder companyBuilder = new CompanyBuilder();
-    companyBuilder.setName("JetBrains");
-    companyBuilder.setCity("Tallinn");
-    builder.setCompany(companyBuilder.build());
+        final TwitterBuilder twitterBuilder = new TwitterBuilder();
+        twitterBuilder.setHandle(handle);
+        builder.setTwitter(twitterBuilder.build());
+
+        final CompanyBuilder companyBuilder = new CompanyBuilder();
+        companyBuilder.setName(company);
+        companyBuilder.setCity(city);
+        builder.setCompany(companyBuilder.build());
 
 
-    final Client client = builder.build();
-    System.out.println("Created client is: " + client);
-  }
+        final Client client = builder.build();
+        System.out.println("Created client is: " + client);
+        return client;
+    }
 }
 
 

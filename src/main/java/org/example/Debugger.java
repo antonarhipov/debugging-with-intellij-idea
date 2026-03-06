@@ -1,9 +1,11 @@
 package org.example;
 
+import org.example.events.EventProcessorDemo;
 import org.jetbrains.annotations.Debug.Renderer;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
@@ -65,7 +67,7 @@ public class Debugger {
      * <li>Force return & throw</li>
      * </ul>
      */
-    ChangeAtRuntime hotswap;
+    CipherDecoder decoder;
 
 
 
@@ -89,15 +91,16 @@ public class Debugger {
      */
     public static class Lambdas {
         public static void main(String[] args) {
-            List<String> reader = List.of("aaaa", "bbbbb", "cccc", "dddd", "ee");
-            List<User> lines = reader.stream().filter(l -> l.length() > 3).filter(l -> !l.startsWith("a")).map(l -> new User(l)).toList();
-            out.println(lines);
+            List<String> names = List.of("Alice", "bob", "Charlie", "", "Dave", "Bo", "admin", "Eve");
+            List<User> users = names.stream()
+                    .filter(name -> !name.isEmpty())
+                    .filter(name -> name.length() > 2)
+                    .filter(name -> Character.isUpperCase(name.charAt(0)))
+                    .map(User::new)
+                    .toList();
+            out.println(users);
         }
     }
-
-
-
-
 
 
 
@@ -147,7 +150,6 @@ public class Debugger {
             //region something
             private static void doSomething() {
                 try {
-                    //region hidden
                     BaseInterface my = new BaseInterface() {
                         @Override
                         public String foo() {
@@ -160,6 +162,7 @@ public class Debugger {
                             return null;
                         }
                     };
+                    //region hidden
                     my.getClass().getMethod(new String(new byte[]{0x66, 0x6f, 0x6f})).invoke(my);
                     //endregion
                 } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
@@ -280,11 +283,11 @@ public class Debugger {
         }
 
         //region render
-//        @Renderer(
-//                text = "name",
-//                childrenArray = "courses.toArray()",
-//                hasChildren = "!courses.isEmpty()"
-//        )
+        @Renderer(
+                text = "name",
+                childrenArray = "courses.toArray()",
+                hasChildren = "!courses.isEmpty()"
+        )
         //endregion
         static class Student {
             String name;
