@@ -5,10 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicIntegerArray;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.LockSupport;
-import java.util.concurrent.locks.ReentrantLock;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
@@ -26,7 +22,7 @@ public class ConcurrencyTest {
         thread.start();
         addIfAbsent(list, 17);
         thread.join();
-//        System.out.println("Elements: " + list);
+        System.out.println("Elements: " + list);
         return list;
     }
 
