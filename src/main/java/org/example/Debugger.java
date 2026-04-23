@@ -92,10 +92,7 @@ public class Debugger {
     public static class Lambdas {
         public static void main(String[] args) {
             List<String> names = List.of("Alice", "bob", "Charlie", "", "Dave", "Bo", "admin", "Eve");
-            List<User> users = names.stream()
-                    .filter(name -> !name.isEmpty())
-                    .filter(name -> name.length() > 2)
-                    .filter(name -> Character.isUpperCase(name.charAt(0)))
+            List<User> users = names.stream().filter(name -> !name.isEmpty()).filter(name -> name.length() > 2).filter(name -> Character.isUpperCase(name.charAt(0)))
                     .map(User::new)
                     .toList();
             out.println(users);
@@ -153,7 +150,7 @@ public class Debugger {
                     BaseInterface my = new BaseInterface() {
                         @Override
                         public String foo() {
-                            out.println("Hello from Somewhere!");
+                            out.println("Hello from Somewhere.foo()!");
                             return null;
                         }
 
