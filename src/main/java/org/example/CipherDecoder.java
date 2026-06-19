@@ -14,11 +14,9 @@ public class CipherDecoder {
             // navigate the frames: main -> fetchMessage -> downloadChunks -> simulateLatency
             String message = decoder.fetchMessage();
 
-            System.out.println("Message received. Starting decode...\n");
+            System.out.println("Starting decode...\n");
 
-            // 'set local variable' — change 'shift' here to jump to the answer instantly
             for (int shift = 0; shift < 26; shift++) {
-                // 'show method return value' — inspect decode() result before println
                 System.out.println(decoder.decode(message, shift));
                 sleep();
             }
