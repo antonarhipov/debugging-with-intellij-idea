@@ -1,11 +1,8 @@
 package org.example;
 
-import org.example.events.EventProcessorDemo;
 import org.jetbrains.annotations.Debug.Renderer;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;

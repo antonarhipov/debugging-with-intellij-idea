@@ -55,6 +55,7 @@ public class GameOfLifeApp extends Application {
     private Timeline clock;
 
     private Label statusLabel;
+    private ToggleButton play;
 
     @Override
     public void start(Stage stage) {
@@ -75,7 +76,7 @@ public class GameOfLifeApp extends Application {
         root.setTop(buildToolbar());
         root.setStyle("-fx-background-color: " + toHex(BG_COLOR) + ";");
 
-        seedGlider();
+        seedRandom();
         draw();
 
         Scene scene = new Scene(root);
@@ -83,10 +84,15 @@ public class GameOfLifeApp extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+
+        // Start running immediately so the simulation is visible on launch.
+        play.setSelected(true);
+        play.setText("⏸ Pause");
+        clock.play();
     }
 
     private HBox buildToolbar() {
-        ToggleButton play = new ToggleButton("▶ Play");
+        play = new ToggleButton("▶ Play");
         play.setOnAction(e -> {
             if (play.isSelected()) {
                 clock.play();
@@ -170,22 +176,29 @@ public class GameOfLifeApp extends Application {
     }
 
     /**
-     * Correct, non-mutating generation step: every cell's fate is decided from
-     * the previous board, written into a fresh grid. Reuses the pure
+     * Advance the whole board by one generation. Each cell's next state is
+     * decided from {@code current} and written into a freshly built grid, so
+     * the read side always sees the previous generation intact. Reuses the pure
      * {@link GameOfLife#countNeighbours} helper.
      */
     private static int[][] nextGeneration(int[][] current) {
         int rows = current.length;
         int cols = current[0].length;
-        int[][] next = new int[rows][cols];
+
+        int[][] next = new int[rows][];
+
+        // Reuse a single row buffer while filling the grid — saves allocating a
+        // throwaway int[] for every row on every generation.
+        int[] row = new int[cols];
 
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 int neighbours = GameOfLife.countNeighbours(current, r, c);
                 boolean alive = current[r][c] == GameOfLife.ALIVE;
                 boolean survives = alive ? (neighbours == 2 || neighbours == 3) : (neighbours == 3);
-                next[r][c] = survives ? GameOfLife.ALIVE : GameOfLife.DEAD;
+                row[c] = survives ? GameOfLife.ALIVE : GameOfLife.DEAD;
             }
+            next[r] = row;
         }
         return next;
     }
