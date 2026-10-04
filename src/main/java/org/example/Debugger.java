@@ -163,9 +163,11 @@ public class Debugger {
 
         //region somewhere
         static class Somewhere {
-            static BaseInterface getObject() {
+            static {
                 doSomething();
+            }
 
+            static BaseInterface getObject() {
                 class Clazz implements BaseInterface {
                     @Override
                     public String foo() {
