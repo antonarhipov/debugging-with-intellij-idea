@@ -43,8 +43,5 @@ public class ProductOfferCatalog {
     }
 
     record Offer(String product, BigDecimal price, boolean inStock) {
-        Offer {
-            price = price.stripTrailingZeros();
-        }
     }
 }
