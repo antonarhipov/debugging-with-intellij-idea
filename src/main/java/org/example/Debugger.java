@@ -21,6 +21,7 @@ public class Debugger {
     String x = "@antonarhipov";
     String bsky = "antonarhipov.bsky.social";
     String company = "JetBrains";
+    String github ="github.com/antonarhipov/debugging-with-intellij-idea";
     //endregion
 
 
