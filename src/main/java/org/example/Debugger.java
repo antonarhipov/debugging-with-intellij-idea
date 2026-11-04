@@ -66,7 +66,7 @@ public class Debugger {
      * <li>Force return & throw</li>
      * </ul>
      */
-    CipherDecoder decoder;
+    ChangeAtRuntime decoder;
 
 
 
