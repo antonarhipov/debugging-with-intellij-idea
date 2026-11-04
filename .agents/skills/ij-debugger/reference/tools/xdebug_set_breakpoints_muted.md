@@ -1,0 +1,16 @@
+# xdebug_set_breakpoints_muted
+The tool selects `sessionId`, or selects the session automatically when only one active session exists.<br/>The mute state applies to all breakpoints in that session.<br/>It preserves each breakpoint's `enabled` setting.
+
+## Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| sessionId | string | Debug session ID. Use the current ID returned by `xdebug_get_debugger_status` or `xdebug_start_debugger_session`. The ID remains stable after the session stops. Active-only operations return `SESSION_NOT_ACTIVE` for retained stopped sessions. If null and exactly one active session exists, it is selected automatically. If multiple sessions are active and sessionId is omitted, the call fails. Default: null. |
+| muted* | boolean | Whether to mute all breakpoints in the session. |
+| projectPath | string | The project path. Pass this value ALWAYS if you are aware of it. It reduces numbers of ambiguous calls. <br/>In the case you know only the current working directory you can use it as the project path.<br/>If you're not aware about the project path you can ask user about it. |
+
+## Output
+| Name | Type | Description |
+| --- | --- | --- |
+| sessionId* | string | The resolved debug session ID. |
+| breakpointsMuted* | boolean | Whether all breakpoints are muted for the session. |
+
