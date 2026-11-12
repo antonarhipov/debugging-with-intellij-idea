@@ -1,6 +1,7 @@
 package org.example;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import static java.lang.System.out;
@@ -38,7 +39,7 @@ public class ProductOfferCatalog {
                 .filter(offer -> offer.price().signum() > 0)
                 .distinct()
                 .map(offer -> "%s: %s".formatted(
-                        offer.product(), offer.price().setScale(2).toPlainString()))
+                        offer.product(), offer.price().setScale(2, RoundingMode.HALF_UP).toPlainString()))
                 .toList();
     }
 
